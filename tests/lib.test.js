@@ -64,3 +64,23 @@ describe("getProduct", () => {
     
   });
 });
+
+describe('registerUser', () => {
+  it("should throw error if username is falsy", () => {
+    //  NULL undefined NaN '' 0 false --> falsy values
+
+    const falsyValues = [null, undefined, NaN, '', 0, false];
+    falsyValues.map(falsyValue => {
+      expect(() => {lib.registerUser(falsyValue)}).toThrow();
+    });
+  });
+
+  it("should return a user object if valid username is passed", () => {
+    const result = lib.registerUser("Bipin");
+    expect(result).toMatchObject({username: "Bipin"});
+
+    // date can't be compared or matched because the time when
+    // registerUser is invoked and the test code is always different
+    expect(result.id).toBeGreaterThan(0);
+  });
+});
