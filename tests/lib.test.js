@@ -1,4 +1,5 @@
 const lib = require("../lib");
+const db = require("../db");
 
 describe("absolute", () => {
   it("should return a positive number if input is positive", () => {
@@ -82,5 +83,24 @@ describe('registerUser', () => {
     // date can't be compared or matched because the time when
     // registerUser is invoked and the test code is always different
     expect(result.id).toBeGreaterThan(0);
+  });
+});
+
+
+describe('applyDisount', () => {
+  it("should apply 10% discount if customer has more than 10 points", () => {
+    db.getCustomerSync = (customerId) => {
+      console.log("Fake Reading Customer...");
+      return {
+        id: customerId,
+        points: 20
+       };
+    }
+    const order = {
+      customerId: 1, 
+      totalPrice: 10
+    }
+    lib.applyDiscount(order);
+    expect(order.totalPrice).toBe(9);
   });
 });
