@@ -109,16 +109,12 @@ describe('applyDisount', () => {
 
 describe('notifyCustomer', () => {
   it("should send an email to the customer", () => {
-    db.getCustomerSync = (customerId) => {
-      return { email: "hello"};
-    };
 
-    let mailSent = false;
-    mail.send = (email, message) => {
-      mailSent = true;
-    };
+    db.getCustomerSync = jest.fn().mockReturnValue({email: "Hello"});
+
+    mail.send = jest.fn();
     
     lib.notifyCustomer({customerId: 1});
-    expect(mailSent).toBe(true);
+    expect(mail.send).toHaveBeenCalled();
   });
 })
