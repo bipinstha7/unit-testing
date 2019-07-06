@@ -1,19 +1,24 @@
 {
-  "name": "testing-demo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "db.js",
-  "directories": {
-    "test": "tests"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "jest": "^23.1.0"
-  },
-  "scripts": {
-    "test": "jest --watchAll"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+	"name": "unit-testing",
+	"version": "1.0.0",
+	"description": "",
+	"main": "db.js",
+	"dependencies": {},
+	"devDependencies": {
+		"jest": "^24.8.0"
+	},
+	"scripts": {
+		"test": "jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bipinstha7/unit-testing.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/bipinstha7/unit-testing/issues"
+	},
+	"homepage": "https://github.com/bipinstha7/unit-testing#readme"
 }
