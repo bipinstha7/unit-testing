@@ -70,7 +70,7 @@ describe('registerUser', () => {
 	})
 
 	it('should return if valid username is passed', () => {
-		const resutl = lib.registerUser('Node')
+		const result = lib.registerUser('Node')
 		expect(result).toMatchObject({ username: 'Node' })
 		expect(result.id).toBeGreaterThan(0)
 	})
